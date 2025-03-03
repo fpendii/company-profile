@@ -26,6 +26,9 @@
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png" />
     <link rel="shortcut icon" href="ico/favicon.png" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
     <!-- =======================================================
     Theme Name: Flattern
     Theme URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
@@ -217,74 +220,38 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="span3">
+                    <!-- Tentang Perusahaan -->
+                    <div class="span4">
                         <div class="widget">
-                            <h5 class="widgetheading">Browse pages</h5>
-                            <ul class="link-list">
-                                <li><a href="#">About our company</a></li>
-                                <li><a href="#">Our services</a></li>
-                                <li><a href="#">Meet our team</a></li>
-                                <li><a href="#">Explore our portfolio</a></li>
-                                <li><a href="#">Get in touch with us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="span3">
-                        <div class="widget">
-                            <h5 class="widgetheading">Important stuff</h5>
-                            <ul class="link-list">
-                                <li><a href="#">Press release</a></li>
-                                <li><a href="#">Terms and conditions</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Career center</a></li>
-                                <li><a href="#">Flattern forum</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="span3">
-                        <div class="widget">
-                            <h5 class="widgetheading">Flickr photostream</h5>
-                            <div class="flickr_badge">
-                                <script type="text/javascript"
-                                    src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03">
-                                </script>
-                            </div>
-                            <div class="clear">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3">
-                        <div class="widget">
-                            <h5 class="widgetheading">Get in touch with us</h5>
-                            <address>
-                                <strong>Flattern studio, Pte Ltd</strong><br>
-                                Springville center X264, Park Ave S.01<br>
-                                Semarang 16425 Indonesia
-                            </address>
+                            <h5 class="widgetheading">Tentang Perusahaan</h5>
                             <p>
-                                <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-                                <i class="icon-envelope-alt"></i> email@domainname.com
+                                Ratna Education adalah platform yang menyediakan berbagai layanan pendidikan seperti bimbingan mahasiswa, bimbingan umum, penyusunan artikel ilmiah, pengolahan data, dan layanan percetakan. Kami berkomitmen untuk membantu meningkatkan kualitas pendidikan dan memberikan solusi terbaik bagi kebutuhan akademik Anda.
                             </p>
+                        </div>
+                    </div>
+
+                    <!-- Maps Perusahaan dengan Marker -->
+                    <div class="span8">
+                        <div class="widget">
+                            <h5 class="widgetheading">Lokasi Kami</h5>
+                            <!-- Embed Google Maps dengan Marker -->
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11014.670797295702!2d114.80554134826764!3d-3.7918038319992613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d8d48a58299%3A0xd3dbb47a5e34d5fe!2sSpringville%20Center!5e0!3m2!1sen!2sid!4v1649350148363!5m2!1sen!2sid&markers=-3.7918038319992613,114.80554134826764"
+                                width="100%" height="400" style="border:0;" allowfullscreen=""
+                                loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div id="sub-footer">
                 <div class="container">
                     <div class="row">
                         <div class="span6">
                             <div class="copyright">
-                                <p>
-                                    <span>&copy; Flattern - All right reserved.</span>
-                                </p>
+                                <p><span>&copy; Ratna Education</span></p>
                                 <div class="credits">
-                                    <!--
-                    All the links in the footer should remain intact.
-                    You can delete the links only if you purchased the pro version.
-                    Licensing information: https://bootstrapmade.com/license/
-                    Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flattern
-                  -->
-                                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                                    Designed by <a href="https://bootstrapmade.com/">Batuah Talenta Semesta</a>
                                 </div>
                             </div>
                         </div>
@@ -298,7 +265,7 @@
                                             class="icon-linkedin icon-square"></i></a></li>
                                 <li><a href="#" data-placement="bottom" title="Pinterest"><i
                                             class="icon-pinterest icon-square"></i></a></li>
-                                <li><a href="#" data-placement="bottom" title="Google plus"><i
+                                <li><a href="#" data-placement="bottom" title="Google Plus"><i
                                             class="icon-google-plus icon-square"></i></a></li>
                             </ul>
                         </div>
@@ -306,6 +273,7 @@
                 </div>
             </div>
         </footer>
+
     </div>
     <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
     <!-- javascript

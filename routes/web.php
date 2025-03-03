@@ -9,6 +9,7 @@ use App\Http\Controllers\free_user\TentangPerusahaanController;
 use App\Http\Controllers\free_user\LayananController;
 
 Route::prefix('')->group(function () {
+    Route::get('/', [BerandaController::class, 'beranda']);
     Route::get('/beranda', [BerandaController::class, 'beranda']);
 
     Route::get('/tentang-perusahaan', [TentangPerusahaanController::class, 'tentang_perusahaan']);

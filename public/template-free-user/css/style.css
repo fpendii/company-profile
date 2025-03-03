@@ -79,6 +79,18 @@ a:active {
   padding: 0;
 }
 
+.icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f43e07; /* warna oranye */
+    color: #fff;
+    font-size: 32px;
+  }
+
 #wrapper.boxed {
   width: 1230px;
   overflow: hidden;
