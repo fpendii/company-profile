@@ -1,6 +1,6 @@
 @extends('component.template_free_user')
 
-@section('title', 'Beranda')
+@section('title', 'Bimbingan Umum')
 
 @section('content')
 <section id="inner-headline">
@@ -27,11 +27,11 @@
         <div class="row">
             <div class="span12">
                 <ul class="portfolio-categ">
-                    <li class="{{ Request::is('layanan') ? 'active' : '' }}"><a href="/layanan/bimbingan-mahasiswa">Bimbingan Mahasiswa</a></li>
-                    <li><a href="/layanan/bimbingan-umum">Bimbingan Umum</a></li>
-                    <li><a href="/layanan/artikel-ilmiah">Artikel Ilmiah</a></li>
-                    <li><a href="/layanan/olah-data">Olah Data</a></li>
-                    <li><a href="/layanan/percetakan">Percetakan</a></li>
+                    <li class="{{ Request::is('layanan') ? 'active' : '' }}"><a href="/layanan">Bimbingan Mahasiswa</a></li>
+                    <li class="{{ Request::is('layanan/bimbingan-umum') ? 'active' : '' }}"><a href="/layanan/bimbingan-umum">Bimbingan Umum</a></li>
+                    <li class="{{ Request::is('layanan/artikel-ilmiah') ? 'active' : '' }}"><a href="/layanan/artikel-ilmiah">Artikel Ilmiah</a></li>
+                    <li class="{{ Request::is('layanan/olah-data') ? 'active' : '' }}"><a href="/layanan/olah-data">Olah Data</a></li>
+                    <li class="{{ Request::is('layanan/percetakan') ? 'active' : '' }}"><a href="/layanan/percetakan">Percetakan</a></li>
                 </ul>
                 <div class="clearfix"></div>
 

@@ -20,7 +20,11 @@ Route::prefix('')->group(function () {
 
     Route::get('/tentang-perusahaan', [TentangPerusahaanController::class, 'tentang_perusahaan']);
 
-    Route::get('/layanan', [LayananController::class, 'layanan']);
+    Route::get('/layanan', [LayananController::class, 'layananBimbinganMahasiwa']);
+    Route::get('/layanan/bimbingan-umum', [LayananController::class, 'layananBimbinganUmum']);
+    Route::get('/layanan/artikel-ilmiah', [LayananController::class, 'layananArtikelIlmiah']);
+    Route::get('/layanan/olah-data', [LayananController::class, 'layananOlahData']);
+    Route::get('/layanan/percetakan', [LayananController::class, 'layananPercetakan']);
 
     Route::get('/berita', [BeritaController::class, 'berita']);
 
