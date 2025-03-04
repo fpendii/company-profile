@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\DataUsahaAdminController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\admin\PengaturanAdminController;
@@ -34,4 +35,5 @@ Route::prefix('')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/pengaturan', [PengaturanAdminController::class, 'pengaturan']);
+    Route::post('/pengaturan/simpan', [PengaturanAdminController::class, 'simpan']);
 });

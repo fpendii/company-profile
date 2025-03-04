@@ -1,5 +1,9 @@
 @extends('component.template_free_user')
 
+@php
+    $page = 'artikel-ilmiah';
+@endphp
+
 @section('title', 'Artikel Ilmiah')
 
 @section('content')
