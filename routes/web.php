@@ -4,7 +4,7 @@ use App\Http\Controllers\admin\DataUsahaAdminController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\admin\PengaturanAdminController;
-
+use App\Http\Controllers\admin\PengaturanLayananAdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\free_user\BerandaController;
 use App\Http\Controllers\free_user\BeritaController;
@@ -36,4 +36,10 @@ Route::prefix('')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/pengaturan', [PengaturanAdminController::class, 'pengaturan']);
     Route::post('/pengaturan/simpan', [PengaturanAdminController::class, 'simpan']);
+
+    Route::get('/pengaturan/layanan', [PengaturanLayananAdminController::class, 'pengaturan_layanan']);
+    Route::get('/pengaturan/layanan/edit/{id}', [PengaturanLayananAdminController::class, 'edit']);
+    Route::post('/pengaturan/layanan/simpan/{id}', [PengaturanLayananAdminController::class, 'simpan']);
+
+    Route::post('/pengaturan/layanan/tambah-kategori', [PengaturanLayananAdminController::class, 'tambah_kategori']);
 });
