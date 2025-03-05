@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ModelJurusan;
+use App\Models\ModelJurusanKategori;
 use App\Models\ModelKategoriLayanan;
 use App\Models\ModelLayanan;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,8 @@ use Illuminate\Http\Request;
 
 class PengaturanLayananAdminController extends Controller
 {
-    public function pengaturan_layanan(){
+    public function pengaturan_layanan()
+    {
 
         $layanans = ModelLayanan::get();
 
@@ -20,12 +22,15 @@ class PengaturanLayananAdminController extends Controller
 
     public function edit($id)
     {
-        $layanan = ModelLayanan::with('kategoriLayanan.jurusan')->findOrFail($id);
+        $layanan = ModelLayanan::with(['kategoriLayanan.jurusanKategori'])->findOrFail($id);
+        $jurusanList = ModelJurusan::all();
 
-        return view('admin.pengaturan_layanan.edit', compact('layanan'));
+        return view('admin.pengaturan_layanan.edit', compact('layanan', 'jurusanList'));
     }
 
-    public function simpan(Request $request, $id){
+
+    public function simpan(Request $request, $id)
+    {
 
         $layanan = ModelLayanan::findOrFail($id);
 
@@ -38,15 +43,30 @@ class PengaturanLayananAdminController extends Controller
         return redirect('admin/pengaturan/layanan');
     }
 
-    public function tambah_kategori(Request $request){
+    public function tambah_kategori(Request $request)
+    {
         $layanan = ModelLayanan::findOrFail($request->layanan_id);
 
-        $layanan->kategoriLayanan()->create([
+        $kategori = $layanan->kategoriLayanan()->create([
             'id_layanan' => $request->layanan_id,
             'nama_kategori' => $request->nama_kategori,
             'penjelasan' => $request->penjelasan_kategori
         ]);
 
-        return redirect('admin/pengaturan/layanan/edit/'.$layanan->id);
+        foreach ($request->jurusan as $jurusan) {
+            ModelJurusanKategori::create([
+                'id_kategori' => $kategori->id,
+                'id_jurusan' => $jurusan
+            ]);
+        }
+
+        return redirect('admin/pengaturan/layanan/edit/' . $layanan->id);
+    }
+
+
+    public function hapus_kategori($id)
+    {
+        ModelKategoriLayanan::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }

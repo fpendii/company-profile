@@ -31,7 +31,8 @@
         </div>
 
         <div class="card-body">
-            <form action="{{ url('admin/pengaturan/layanan/simpan/'.$layanan->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('admin/pengaturan/layanan/simpan/' . $layanan->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
 
                 <!-- Bagian Tambah Order -->
@@ -39,8 +40,8 @@
                     <div class="mb-3">
                         <label for="nama_layanan" class="form-label">Nama Layanan</label>
                         <input type="text" value="{{ $layanan->nama_layanan }} "
-                            class="form-control @error('nama_layanan') is-invalid @enderror" id="nama_layanan" name="nama_layanan"
-                            value="{{ old('nama_layanan', $setting->nama_layanan ?? '') }}" readonly>
+                            class="form-control @error('nama_layanan') is-invalid @enderror" id="nama_layanan"
+                            name="nama_layanan" value="{{ old('nama_layanan', $setting->nama_layanan ?? '') }}" readonly>
                         @error('nama_layanan')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -60,8 +61,8 @@
                 <!-- Input lainnya -->
                 <div class="mb-3">
                     <label for="total_client" class="form-label">Total Client</label>
-                    <input type="text" class="form-control @error('total_client') is-invalid @enderror"
-                        id="total_client" name="total_client" value="{{ $layanan->total_client }}" required>
+                    <input type="text" class="form-control @error('total_client') is-invalid @enderror" id="total_client"
+                        name="total_client" value="{{ $layanan->total_client }}" required>
                     @error('total_client')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -95,14 +96,18 @@
                                 <div class="d-flex flex-column">
                                     <h6 class="mb-1 text-dark font-weight-bold text-sm">{{ $kategori->nama_kategori }}</h6>
                                     <p>{{ $kategori->penjelasan }}</p>
-                                    @foreach ($kategori->jurusan as $jurusan)
-                                        <span class="text-xs"> - {{ $jurusan->nama_jurusan }}</span>
+                                    @foreach ($kategori->jurusanKategori as $jurusanKategori)
+                                        <span class="text-xs"> - {{ $jurusanKategori->jurusan->nama_jurusan }}</span>
                                     @endforeach
                                 </div>
                                 <div class="d-flex align-items-center text-sm">
                                     <button type="button" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"
                                         data-bs-toggle="modal" data-bs-target="#editCategoryModal{{ $kategori->id }}">
                                         <i class="fas fa-edit text-lg me-1"></i> Edit
+                                    </button>
+                                    <button type="button" class="btn btn-link text-danger text-sm mb-0 px-0 ms-4"
+                                        data-bs-toggle="modal" data-bs-target="#deleteCategoryModal{{ $kategori->id }}">
+                                        <i class="fas fa-trash-alt text-lg me-1"></i> Hapus
                                     </button>
                                 </div>
                             </li>
@@ -117,15 +122,14 @@
     </div>
 
     <!-- Modal Tambah Kategori -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form action="{{ url('admin/pengaturan/layanan/tambah-kategori') }}" method="POST">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="addCategoryModalLabel">Tambah Kategori</h5>
-                        <input type="text" value="{{ $layanan->id}}" name="layanan_id" hidden>
+                        <input type="text" value="{{ $layanan->id }}" name="layanan_id" hidden>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -145,6 +149,18 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="mb-3">
+                            <label for="jurusan" class="form-label">Pilih Jurusan</label>
+                            <select class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan[]" multiple required>
+                                @foreach ($jurusanList as $jurusan)
+                                    <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
+                                @endforeach
+                            </select>
+                            @error('jurusan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -155,32 +171,66 @@
         </div>
     </div>
 
+    <!-- Modal Hapus Kategori -->
+    @foreach ($layanan->kategoriLayanan as $kategori)
+        <div class="modal fade" id="deleteCategoryModal{{ $kategori->id }}" tabindex="-1"
+            aria-labelledby="deleteCategoryModalLabel{{ $kategori->id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="{{ url('admin/pengaturan/layanan/hapus-kategori/' . $kategori->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteCategoryModalLabel{{ $kategori->id }}">Hapus Kategori</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Apakah Anda yakin ingin menghapus kategori <strong>{{ $kategori->nama_kategori }}</strong>?
+                            </p>
+                            <p class="text-danger"><small>Proses ini tidak dapat dibatalkan.</small></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+
+
     <!-- Modal Edit Kategori -->
     @foreach ($layanan->kategoriLayanan as $kategori)
-        <div class="modal fade" id="editCategoryModal{{ $kategori->id }}" tabindex="-1" aria-labelledby="editCategoryModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="editCategoryModal{{ $kategori->id }}" tabindex="-1"
+            aria-labelledby="editCategoryModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form action="{{ url('admin/pengaturan/layanan/editKategori/'.$kategori->id) }}" method="POST">
+                <form action="{{ url('admin/pengaturan/layanan/editKategori/' . $kategori->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="editCategoryModalLabel">Edit Kategori</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="nama_kategori" class="form-label">Nama Kategori</label>
                                 <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror"
-                                    id="nama_kategori" name="nama_kategori" value="{{ $kategori->nama_kategori }}" required>
+                                    id="nama_kategori" name="nama_kategori" value="{{ $kategori->nama_kategori }}"
+                                    required>
                                 @error('nama_kategori')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="penjelasan_kategori" class="form-label">Penjelasan</label>
-                                <input type="text" class="form-control @error('penjelasan_kategori') is-invalid @enderror"
-                                    id="penjelasan_kategori" name="penjelasan_kategori" value="{{ $kategori->penjelasan }}" required>
+                                <input type="text"
+                                    class="form-control @error('penjelasan_kategori') is-invalid @enderror"
+                                    id="penjelasan_kategori" name="penjelasan_kategori"
+                                    value="{{ $kategori->penjelasan }}" required>
                                 @error('penjelasan_kategori')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
