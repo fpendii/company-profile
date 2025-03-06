@@ -21,9 +21,9 @@
                         <!-- Slide #1 caption -->
                         <div class="nivo-caption" id="caption-1">
                             <div>
-                                <h2>Ratna <strong>Education</strong></h2>
+                                <h2><strong>{{$dataUsaha->nama_usaha}}</strong></h2>
                                 <p>
-                                    Slogan Perusahaan
+                                    {{$dataUsaha->slogan}}
                                 </p>
                             </div>
                         </div>
@@ -39,7 +39,10 @@
             <div class="row">
                 <div class="span6">
                     <h2>Selamat Datang di <strong>Ratna Education</strong></h2>
-                    <p style="text-align: justify">
+                    {!! $dataUsaha->penjelasan_usaha !!}
+
+
+                    {{-- <p style="text-align: justify">
                         Ratna Education menyediakan berbagai layanan untuk mendukung pengembangan akademik dan praktis Anda.
                         Layanan bimbingan mahasiswa bertujuan untuk membantu mahasiswa meraih keberhasilan akademik melalui
                         sesi bimbingan yang disesuaikan. Kami juga menawarkan bimbingan umum untuk mengembangkan
@@ -50,7 +53,7 @@
                         bantuan untuk memenuhi tugas akademik atau publikasi. Layanan olah data kami memungkinkan Anda untuk
                         menganalisis data dengan tepat guna, sementara layanan percetakan kami memberikan hasil cetak
                         berkualitas tinggi untuk kebutuhan profesional.
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="span6">
                     <!-- start flexslider -->
@@ -84,9 +87,9 @@
                                     <i class="fa-solid fa-user-graduate icon-circled icon-64 active"></i>
                                 </div>
                                 <div class="text">
-                                    <h6>Bimbingan Mahasiswa</h6>
-                                    <p>Menyediakan bantuan untuk mahasiswa dalam menyelesaikan tugas dan pengembangan akademik.</p>
-                                    <span class="highlight"><strong>Total Client 4000</strong></span>
+                                    <h6>{{$layananBimbinganMahasiswa->nama_layanan}}</h6>
+                                    <p>{{$layananBimbinganMahasiswa->penjelasan}}</p>
+                                    <span class="highlight"><strong>{{$layananBimbinganMahasiswa->total_client}}</strong></span>
                                 </div>
                             </div>
                         </div>
@@ -94,9 +97,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-user-tie icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>Bimbingan Umum</h6>
-                                    <p>Meningkatkan keterampilan pribadi dan profesional, seperti komunikasi dan kepemimpinan.</p>
-                                    <span class="highlight"><strong>Total Client 4000</strong></span>
+                                    <h6>{{$layananBimbinganUmum->nama_layanan}}</h6>
+                                    <p>{{$layananBimbinganUmum->penjelasan}}</p>
+                                    <span class="highlight"><strong>{{$layananBimbinganUmum->total_client}}</strong></span>
                                 </div>
                             </div>
                         </div>
@@ -104,9 +107,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-newspaper icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>Artikel Ilmiah</h6>
-                                    <p>Membantu penulisan dan penerbitan artikel ilmiah yang siap dipublikasikan.</p>
-                                    <span class="highlight"><strong>Total Client 4000</strong></span>
+                                    <h6>{{$layanaArtikelIlmiah->nama_layanan}}</h6>
+                                    <p>{{$layanaArtikelIlmiah->penjelasan}}</p>
+                                    <span class="highlight"><strong>{{$layanaArtikelIlmiah->total_client}}</strong></span>
                                 </div>
                             </div>
                         </div>
@@ -121,9 +124,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-table icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>Olah Data</h6>
-                                    <p>Menyediakan analisis data yang akurat untuk riset atau laporan bisnis.</p>
-                                    <span class="highlight"><strong>Total Client 4000</strong></span>
+                                    <h6>{{$layananOlahData->nama_layanan}}</h6>
+                                    <p>{{$layananOlahData->penjelasan}}</p>
+                                    <span class="highlight"><strong>{{$layananOlahData->total_client}}</strong></span>
                                 </div>
                             </div>
                         </div>
@@ -131,9 +134,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-print icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>Percetakan</h6>
-                                    <p>Menyediakan layanan percetakan berkualitas tinggi untuk berbagai kebutuhan.</p>
-                                    <span class="highlight"><strong>Total Client 4000</strong></span>
+                                    <h6>{{$layananPercetakan->nama_layanan}}</h6>
+                                    <p>{{$layananPercetakan->penjelasan}}</p>
+                                    <span class="highlight"><strong>{{$layananPercetakan->total_client}}</strong></span>
                                 </div>
                             </div>
                         </div>

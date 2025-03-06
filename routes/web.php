@@ -15,7 +15,8 @@ use App\Http\Controllers\free_user\TentangPerusahaanController;
 use App\Http\Controllers\free_user\LayananController;
 
 Route::get('/login', [AuthController::class, 'login']);
-Route::post('/login/proses', [AuthController::class, 'proses']);
+Route::post('/login/proses', [AuthController::class, 'authenticate']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::prefix('')->group(function () {
     Route::get('/', [BerandaController::class, 'beranda']);
@@ -35,7 +36,7 @@ Route::prefix('')->group(function () {
 });
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['authadmin'])->group(function () {
     Route::get('/pengaturan', [PengaturanAdminController::class, 'pengaturan']);
     Route::post('/pengaturan/simpan', [PengaturanAdminController::class, 'simpan']);
 
@@ -54,4 +55,5 @@ Route::prefix('admin')->group(function () {
     Route::put('/data-master/jurusan/update/{id}', [DataMasterController::class, 'updateJurusan']);
 
     Route::get('/akun', [AkunAdminController::class, 'akun']);
+    Route::put('/akun/update', [AkunAdminController::class, 'update']);
 });

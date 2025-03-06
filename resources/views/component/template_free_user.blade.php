@@ -189,7 +189,7 @@
                             <div class="navigation">
                                 <nav>
                                     <ul class="nav topnav">
-                                        <li class="{{ Request::is('beranda') ? 'active' : '' }}">
+                                        <li class="{{ Request::is('/beranda') ? 'active' : '' }} ">
                                             <a href="{{ url('/beranda') }}">Beranda </a>
                                         </li>
                                         <li class="{{ Request::is('tentang-perusahaan') ? 'active' : '' }}">
@@ -224,9 +224,11 @@
                     <div class="span4">
                         <div class="widget">
                             <h5 class="widgetheading">Tentang Perusahaan</h5>
-                            <p>
+                            <p>{!! $dataUsaha->tentang_usaha !!}</p>
+
+                            {{-- <p>
                                 Ratna Education adalah platform yang menyediakan berbagai layanan pendidikan seperti bimbingan mahasiswa, bimbingan umum, penyusunan artikel ilmiah, pengolahan data, dan layanan percetakan. Kami berkomitmen untuk membantu meningkatkan kualitas pendidikan dan memberikan solusi terbaik bagi kebutuhan akademik Anda.
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
 

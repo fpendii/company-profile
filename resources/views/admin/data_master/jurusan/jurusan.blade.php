@@ -1,6 +1,6 @@
 @extends('component.template_admin')
 
-@section('title', 'Pengaturan')
+@section('title', 'Data Master')
 
 @php
     $page = 'Pengaturan Data Usaha';
@@ -13,7 +13,7 @@
         <div class="card-body">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link {{ Request::is('admin/jurusan*') ? 'active' : '' }}" id="home-tab"
+                    <a class="nav-link {{ Request::is('admin/data-master*') ? 'active' : '' }}" id="home-tab"
                         href="{{ url('/admin/data-master') }}" role="tab" aria-controls="home" aria-selected="true"><i
                             class="fa-solid fa-print"></i>Jurusan</a>
                 </li>

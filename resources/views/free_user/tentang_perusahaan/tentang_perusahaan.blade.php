@@ -29,11 +29,12 @@
                     <div class="card shadow-sm border-0 rounded">
                         <div class="card-body text-center">
                             <h2 class="card-title text-primary"><strong>Visi</strong></h2>
-                            <p class="card-text">
+                            {!! $dataUsaha->visi !!}
+                            {{-- <p class="card-text">
                                 Visi kami adalah untuk menjadi platform pendidikan terdepan yang membantu meningkatkan
                                 kualitas
                                 pendidikan melalui berbagai layanan yang mendukung pengembangan akademik dan profesional.
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -43,15 +44,15 @@
                     <div class="card shadow-sm border-0 rounded">
                         <div class="card-body text-center">
                             <h2 class="card-title text-primary"><strong>Misi</strong></h2>
-
-                            <strong></strong> Memberikan layanan bimbingan pendidikan yang berkualitas tinggi dan dapat
+                            {!! $dataUsaha->misi !!}
+                            {{-- <strong></strong> Memberikan layanan bimbingan pendidikan yang berkualitas tinggi dan dapat
                             diakses oleh seluruh kalangan.
                             <strong></strong> Memfasilitasi pembuatan artikel ilmiah untuk membantu mahasiswa dan
                             profesional dalam pengembangan karir mereka.
                             <strong></strong> Menyediakan layanan olah data yang efisien untuk mendukung penelitian dan
                             pengembangan di berbagai bidang.
                             <strong></strong> Menawarkan layanan percetakan dengan hasil yang memuaskan dan tepat waktu
-                            untuk mendukung kebutuhan akademik dan bisnis.
+                            untuk mendukung kebutuhan akademik dan bisnis. --}}
 
                         </div>
                     </div>

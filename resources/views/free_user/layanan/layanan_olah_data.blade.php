@@ -42,23 +42,28 @@
                             <div class="span6">
                                 <div class="post-slider">
                                     <div class="post-heading">
-                                        <h3><a href="#">Bimbingan Mahasiswa</a></h3>
+                                        <h3><a href="layanan">{{ $layananOlahData->nama_layanan }}</a></h3>
                                     </div>
                                     <div class="flexslider">
                                         <ul class="slides">
                                             <li>
-                                                <img src="/template-free-user/img/bimbel-mahasiswa.jpeg" alt="Bimbingan Mahasiswa" />
+                                                <img src="/template-free-user/img/bimbel-mahasiswa.jpeg"
+                                                    alt="Bimbingan Mahasiswa" />
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="bottom-article">
-                                        <p>
-                                            Layanan bimbingan mahasiswa kami hadir untuk membantu mahasiswa dalam proses akademik, mulai dari penyusunan skripsi, tesis, hingga disertasi.
-                                            Dengan didampingi oleh para ahli berpengalaman, Anda dapat lebih mudah mencapai target kelulusan tepat waktu dengan kualitas karya ilmiah terbaik.
+                                        {{ $layananOlahData->penjelasan }}
+                                        {{-- <p>
+                                            Layanan bimbingan mahasiswa kami hadir untuk membantu mahasiswa dalam proses
+                                            akademik, mulai dari penyusunan skripsi, tesis, hingga disertasi.
+                                            Dengan didampingi oleh para ahli berpengalaman, Anda dapat lebih mudah
+                                            mencapai target kelulusan tepat waktu dengan kualitas karya ilmiah terbaik.
                                         </p>
                                         <p>
-                                            Kami menyediakan berbagai metode konsultasi, baik secara daring maupun tatap muka, yang disesuaikan dengan kebutuhan mahasiswa.
-                                        </p>
+                                            Kami menyediakan berbagai metode konsultasi, baik secara daring maupun tatap
+                                            muka, yang disesuaikan dengan kebutuhan mahasiswa.
+                                        </p> --}}
                                     </div>
                                 </div>
                             </div>
@@ -66,50 +71,27 @@
                             <!-- Kanan -->
                             <div class="span6">
                                 <div class="post-heading">
-                                    <h3>Kategori Bimbingan Akademik</h3>
+                                    <h3>Kategori {{ $layananOlahData->nama_layanan }}</h3>
                                 </div>
 
-                                <!-- Skripsi -->
-                                <div class="card shadow-sm p-3 mb-4 rounded" style="background-color: #f0f8ff;">
-                                    <h4 class="text-primary"><i class="icon-book"></i> Skripsi</h4>
-                                    <p>Bimbingan untuk mahasiswa S1 dalam penyusunan skripsi.</p>
-                                    <h5>Jurusan:</h5>
-                                    <ul class="tags">
-                                        <li><a href="#" class="btn btn-small btn-info">Teknik Informatika</a></li>
-                                        <li><a href="#" class="btn btn-small btn-success">Manajemen</a></li>
-                                        <li><a href="#" class="btn btn-small btn-warning">Akuntansi</a></li>
-                                        <li><a href="#" class="btn btn-small btn-danger">Pendidikan</a></li>
-                                        <li><a href="#" class="btn btn-small btn-primary">Hukum</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Tesis -->
-                                <div class="card shadow-sm p-3 mb-4 rounded" style="background-color: #f9f9f9;">
-                                    <h4 class="text-primary"><i class="icon-book"></i> Tesis</h4>
-                                    <p>Bimbingan untuk mahasiswa S2 dalam penyusunan tesis.</p>
-                                    <h5>Jurusan:</h5>
-                                    <ul class="tags">
-                                        <li><a href="#" class="btn btn-small btn-success">Manajemen</a></li>
-                                        <li><a href="#" class="btn btn-small btn-info">Pendidikan</a></li>
-                                        <li><a href="#" class="btn btn-small btn-warning">Teknik Sipil</a></li>
-                                        <li><a href="#" class="btn btn-small btn-danger">Hukum</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Disertasi -->
-                                <div class="card shadow-sm p-3 mb-4 rounded" style="background-color: #fffaf0;">
-                                    <h4 class="text-primary"><i class="icon-book"></i> Disertasi</h4>
-                                    <p>Bimbingan untuk mahasiswa S3 dalam penyusunan disertasi.</p>
-                                    <h5>Jurusan:</h5>
-                                    <ul class="tags">
-                                        <li><a href="#" class="btn btn-small btn-info">Manajemen Pendidikan</a></li>
-                                        <li><a href="#" class="btn btn-small btn-success">Teknik</a></li>
-                                        <li><a href="#" class="btn btn-small btn-warning">Ilmu Sosial</a></li>
-                                    </ul>
-                                </div>
+                                @foreach ($layananOlahData->kategoriLayanan as $kategori)
+                                    <div class="card shadow-sm p-3 mb-4 rounded" style="background-color: #f0f8ff;">
+                                        <h4 class="text-primary"><i class="icon-book"></i>
+                                            {{ $kategori->nama_kategori }}</h4>
+                                        <p>{{ $kategori->penjelasan }}</p>
+                                        <h5>Jurusan:</h5>
+                                        <ul class="tags">
+                                            @foreach ($kategori->jurusanKategori as $kategoriJurusan)
+                                                <li class="btn btn-small btn-info">{{ $kategoriJurusan->jurusan->nama_jurusan }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endforeach
 
                                 <div class="bottom-article">
-                                    <a href="/kontak" class="btn btn-primary mt-3">Hubungi Kami untuk Layanan <i class="icon-angle-right"></i></a>
+                                    <a href="/kontak" class="btn btn-primary mt-3">Hubungi Kami untuk Layanan <i
+                                            class="icon-angle-right"></i></a>
                                 </div>
                             </div>
                         </article>
