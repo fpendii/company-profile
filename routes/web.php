@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AkunAdminController;
+use App\Http\Controllers\admin\BeritaAdminController;
 use App\Http\Controllers\admin\DataMasterController;
 use App\Http\Controllers\admin\DataUsahaAdminController;
 use Illuminate\Support\Facades\Route;
@@ -56,4 +57,14 @@ Route::prefix('admin')->middleware(['authadmin'])->group(function () {
 
     Route::get('/akun', [AkunAdminController::class, 'akun']);
     Route::put('/akun/update', [AkunAdminController::class, 'update']);
+
+    Route::get('/berita', [BeritaAdminController::class, 'berita']);
+    Route::get('/berita/tambah', [BeritaAdminController::class, 'tambah']);
+    Route::post('/berita/simpan', [BeritaAdminController::class, 'simpan']);
+
+    Route::get('berita/edit/{id}', [BeritaAdminController::class, 'edit'])->name('berita.edit');
+    Route::put('berita/update/{id}', [BeritaAdminController::class, 'update'])->name('berita.update');
+
+    Route::delete('berita/delete/{id}', [BeritaAdminController::class, 'destroy'])->name('berita.destroy');
+
 });

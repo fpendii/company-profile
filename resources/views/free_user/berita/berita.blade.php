@@ -31,7 +31,7 @@
                 <button type="submit" class="btn btn-square btn-theme">Cari</button>
               </form>
             </div>
-            <div class="widget">
+            {{-- <div class="widget">
               <h5 class="widgetheading">Katogori</h5>
               <ul class="cat">
                 <li><i class="icon-angle-right"></i><a href="#">Berita Perusahaan</a><span> (20)</span></li>
@@ -41,7 +41,7 @@
                 <li><i class="icon-angle-right"></i><a href="#">Inovasi dan Teknologi</a><span> (18)</span></li>
                 <li><i class="icon-angle-right"></i><a href="#">Corporate Social Responsibility (CSR)</a><span> (18)</span></li>
               </ul>
-            </div>
+            </div> --}}
             <div class="widget">
               <h5 class="widgetheading">Berita Terbaru</h5>
               <ul class="recent">
