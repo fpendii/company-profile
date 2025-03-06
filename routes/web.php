@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\AkunAdminController;
+use App\Http\Controllers\admin\DataMasterController;
 use App\Http\Controllers\admin\DataUsahaAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +48,10 @@ Route::prefix('admin')->group(function () {
 
     Route::put('/pengaturan/layanan/edit-kategori/{id}', [PengaturanLayananAdminController::class, 'updateKategori']);
 
+    Route::get('/data-master', [DataMasterController::class, 'jurusan']);
+    Route::post('/data-master/jurusan/tambah', [DataMasterController::class, 'tambahJurusan']);
+    Route::delete('/data-master/jurusan/hapus/{id}', [DataMasterController::class, 'hapusJurusan']);
+    Route::put('/data-master/jurusan/update/{id}', [DataMasterController::class, 'updateJurusan']);
+
+    Route::get('/akun', [AkunAdminController::class, 'akun']);
 });

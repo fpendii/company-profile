@@ -9,7 +9,7 @@
 @section('content')
     @include('component.alert.alert')
 
-    <div class="card">
+    <div class="card mb-2">
         <div class="card-body">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">

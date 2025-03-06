@@ -26,4 +26,6 @@ class ModelJurusan extends Model
             'id_kategori'
         );
     }
+
+    
 }

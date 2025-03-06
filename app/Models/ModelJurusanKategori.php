@@ -21,4 +21,6 @@ class ModelJurusanKategori extends Model
     {
         return $this->belongsTo(ModelJurusan::class, 'id_jurusan');
     }
+
+    
 }

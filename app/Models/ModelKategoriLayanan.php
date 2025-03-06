@@ -23,19 +23,18 @@ class ModelKategoriLayanan extends Model
     }
 
     public function jurusan()
-{
-    return $this->belongsToMany(
-        ModelJurusan::class,              // Model relasinya
-        'jurusan_kategori',          // Nama tabel pivot
-        'id_kategori',               // Foreign key di tabel pivot yang nyambung ke KategoriLayanan
-        'id_jurusan'                 // Foreign key di tabel pivot yang nyambung ke Jurusan
-    );
-}
-
-
+    {
+        return $this->belongsToMany(
+            ModelJurusan::class,              // Model relasinya
+            'jurusan_kategori',          // Nama tabel pivot
+            'id_kategori',               // Foreign key di tabel pivot yang nyambung ke KategoriLayanan
+            'id_jurusan'                 // Foreign key di tabel pivot yang nyambung ke Jurusan
+        );
+    }
 
     public function jurusanKategori()
     {
         return $this->hasMany(ModelJurusanKategori::class, 'id_kategori');
     }
+
 }
