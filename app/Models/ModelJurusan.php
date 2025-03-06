@@ -16,8 +16,14 @@ class ModelJurusan extends Model
         'nama_jurusan',
     ];
 
+
     public function kategoriLayanan()
     {
-        return $this->belongsTo(ModelKategoriLayanan::class, 'id_kategori_layanan');
+        return $this->belongsToMany(
+            ModelKategoriLayanan::class,
+            'jurusan_kategori',
+            'id_jurusan',
+            'id_kategori'
+        );
     }
 }

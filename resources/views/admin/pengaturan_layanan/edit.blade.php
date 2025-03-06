@@ -151,7 +151,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="jurusan" class="form-label">Pilih Jurusan</label>
-                            <select class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan[]" multiple required>
+                            <select class="form-control @error('jurusan') is-invalid @enderror" id="jurusan"
+                                name="jurusan[]" multiple required>
                                 @foreach ($jurusanList as $jurusan)
                                     <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
                                 @endforeach
@@ -206,7 +207,7 @@
         <div class="modal fade" id="editCategoryModal{{ $kategori->id }}" tabindex="-1"
             aria-labelledby="editCategoryModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form action="{{ url('admin/pengaturan/layanan/editKategori/' . $kategori->id) }}" method="POST">
+                <form action="{{ url('admin/pengaturan/layanan/edit-kategori/' . $kategori->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="modal-content">
@@ -235,6 +236,28 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label for="jurusan" class="form-label">Jurusan</label>
+                                <select name="jurusan[]" id="jurusan" class="form-select" multiple required>
+                                    @foreach ($jurusanList as $jurusan)
+                                        @php
+                                            $selected =
+                                                $kategori->jurusanKategori->where('id_jurusan', $jurusan->id)->count() >
+                                                0
+                                                    ? 'selected'
+                                                    : '';
+                                        @endphp
+                                        <option value="{{ $jurusan->id }}" {{ $selected }}>
+                                            {{ $jurusan->nama_jurusan }}
+                                        </option>
+                                    @endforeach
+
+
+
+                                </select>
+                            </div>
+
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

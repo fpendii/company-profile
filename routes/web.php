@@ -43,4 +43,7 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/pengaturan/layanan/tambah-kategori', [PengaturanLayananAdminController::class, 'tambah_kategori']);
     Route::delete('/pengaturan/layanan/hapus-kategori/{id}', [PengaturanLayananAdminController::class, 'hapus_kategori']);
+
+    Route::put('/pengaturan/layanan/edit-kategori/{id}', [PengaturanLayananAdminController::class, 'updateKategori']);
+
 });
