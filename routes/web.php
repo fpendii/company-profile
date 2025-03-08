@@ -32,8 +32,10 @@ Route::prefix('')->group(function () {
     Route::get('/layanan/percetakan', [LayananController::class, 'layananPercetakan']);
 
     Route::get('/berita', [BeritaController::class, 'berita']);
+    Route::get('/berita/detail/{id}', [BeritaController::class, 'detail']);
 
     Route::get('/kritik-saran', [KritikSaranController::class, 'kritik_saran']);
+    Route::post('/kritik-saran/kirim', [KritikSaranController::class, 'kirim']);
 });
 
 

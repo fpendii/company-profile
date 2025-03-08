@@ -20,40 +20,63 @@
         </div>
     </div>
 </section>
-    <!-- Spacer antara baris -->
-    <div style="height: 50px;"></div>
+
+<!-- Spacer antara baris -->
+<div style="height: 50px;"></div>
+
 <div class="container">
     <div class="row">
-      <div class="span12">
-        <h4>Hubungi kami dengan mengisi formulir kontak di bawah ini</h4>
+        <div class="span12">
+            <h4>Hubungi kami dengan mengisi formulir kontak di bawah ini</h4>
 
-        <form action="" method="post" role="form" class="contactForm">
-          <div id="sendmessage">Pesan anda telah terkirim!</div>
-          <div id="errormessage">Maap, terjadi kesalahan. Silahkan coba lagi.</div>
+            <!-- Notifikasi Berhasil -->
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-          <div class="row">
-            <div class="span4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Nama" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validation"></div>
-            </div>
-            <div class="span4 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
-              <div class="validation"></div>
-            </div>
-            <div class="span4 form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="span12 margintop10 form-group">
-              <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" placeholder="Pesan"></textarea>
-              <div class="validation"></div>
-              <p class="text-center">
-                <button class="btn btn-large btn-theme margintop10" type="submit">Kirim Email</button>
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
+            <!-- Notifikasi Gagal -->
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            <form action="/kritik-saran/kirim" method="post" class="contactForm">
+                @csrf
+
+                <div class="row">
+                    <div class="span4 form-group">
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama" value="{{ old('name') }}">
+                        @error('name')
+                            <div class="invalid-feedback" style="color: red">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="span4 form-group">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+                        @error('email')
+                            <div class="invalid-feedback" style="color: red">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="span4 form-group">
+                        <input type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" id="subject" placeholder="Subjek" value="{{ old('subject') }}">
+                        @error('subject')
+                            <div class="invalid-feedback" style="color: red">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="span12 margintop10 form-group">
+                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="12" placeholder="Pesan">{{ old('message') }}</textarea>
+                        @error('message')
+                            <div class="invalid-feedback" style="color: red">{{ $message }}</div>
+                        @enderror
+                        <p class="text-center">
+                            <button class="btn btn-large btn-theme margintop10" type="submit">Kirim Email</button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
 @endsection
