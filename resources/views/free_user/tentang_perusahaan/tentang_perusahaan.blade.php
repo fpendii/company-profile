@@ -25,10 +25,10 @@
 
             <div class="row mb-4">
                 <!-- Kolom Visi -->
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <div class="col-md-6 mb-4 d-flex ">
                     <div class="card shadow-sm border-0 rounded">
-                        <div class="card-body text-center">
-                            <h2 class="card-title text-primary"><strong>Visi</strong></h2>
+                        <div class="card-body">
+                            <h2 class="card-title text-center text-primary"><strong>Visi</strong></h2>
                             {!! $dataUsaha->visi !!}
                             {{-- <p class="card-text">
                                 Visi kami adalah untuk menjadi platform pendidikan terdepan yang membantu meningkatkan
@@ -40,10 +40,10 @@
                 </div>
 
                 <!-- Kolom Misi -->
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <div class="col-md-6 mb-4 d-flex ">
                     <div class="card shadow-sm border-0 rounded">
-                        <div class="card-body text-center">
-                            <h2 class="card-title text-primary"><strong>Misi</strong></h2>
+                        <div class="card-body">
+                            <h2 class="card-title text-primary text-center"><strong>Misi</strong></h2>
                             {!! $dataUsaha->misi !!}
                             {{-- <strong></strong> Memberikan layanan bimbingan pendidikan yang berkualitas tinggi dan dapat
                             diakses oleh seluruh kalangan.
@@ -60,8 +60,58 @@
 
 
             </div>
+            <div class="row">
+                <div class="span12" style="text-align: center">
+                  <h4>TIM</h4>
+                </div>
+                <div class="span3">
+                  <img src="/template-free-user/img/tim/1.jpg" alt="" class="img-polaroid" />
+                  <div class="roles">
+                    <p class="lead">
+                      <strong>Vincent Austin Jr</strong>
+                    </p>
 
-            <!-- Bagian Maps -->
+                  </div>
+                </div>
+                <div class="span3">
+                    <img src="/template-free-user/img/tim/2.jpg" alt="" class="img-polaroid" />
+                  <div class="roles">
+                    <p class="lead">
+                      <strong>Tommy Laugher</strong>
+                    </p>
+
+                  </div>
+                </div>
+                <div class="span3">
+                    <img src="/template-free-user/img/tim/3.jpg" alt="" class="img-polaroid" />
+                  <div class="roles">
+                    <p class="lead">
+                      <strong>Gabirelle Borowski</strong>
+                    </p>
+
+                  </div>
+                </div>
+                <div class="span3">
+                    <img src="/template-free-user/img/tim/4.jpg" alt="" class="img-polaroid" />
+                  <div class="roles">
+                    <p class="lead">
+                      <strong>Benny Strongton</strong>
+                    </p>
+
+                  </div>
+                </div>
+                <div class="span3">
+                    <img src="/template-free-user/img/tim/5.jpg" alt="" class="img-polaroid" />
+                  <div class="roles">
+                    <p class="lead">
+                      <strong>Benny Strongton</strong>
+                    </p>
+                  
+                  </div>
+                </div>
+              </div>
+
+            {{-- <!-- Bagian Maps -->
             <div class="row">
                 <div class="col-12">
                     <div class="card shadow-sm border-0 rounded">
@@ -74,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 

@@ -21,9 +21,9 @@
                         <!-- Slide #1 caption -->
                         <div class="nivo-caption" id="caption-1">
                             <div>
-                                <h2><strong>{{$dataUsaha->nama_usaha}}</strong></h2>
+                                <h2><strong>{{ $dataUsaha->nama_usaha }}</strong></h2>
                                 <p>
-                                    {{$dataUsaha->slogan}}
+                                    {{ $dataUsaha->slogan }}
                                 </p>
                             </div>
                         </div>
@@ -87,9 +87,9 @@
                                     <i class="fa-solid fa-user-graduate icon-circled icon-64 active"></i>
                                 </div>
                                 <div class="text">
-                                    <h6>{{$layananBimbinganMahasiswa->nama_layanan}}</h6>
-                                    <p>{{$layananBimbinganMahasiswa->penjelasan}}</p>
-                                    <span class="highlight"><strong>{{$layananBimbinganMahasiswa->total_client}}</strong></span>
+                                    <h6>{{ $layananBimbinganMahasiswa->nama_layanan }}</h6>
+                                    <p>{{ $layananBimbinganMahasiswa->penjelasan }}</p>
+
                                 </div>
                             </div>
                         </div>
@@ -97,9 +97,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-user-tie icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>{{$layananBimbinganUmum->nama_layanan}}</h6>
-                                    <p>{{$layananBimbinganUmum->penjelasan}}</p>
-                                    <span class="highlight"><strong>{{$layananBimbinganUmum->total_client}}</strong></span>
+                                    <h6>{{ $layananBimbinganUmum->nama_layanan }}</h6>
+                                    <p>{{ $layananBimbinganUmum->penjelasan }}</p>
+
                                 </div>
                             </div>
                         </div>
@@ -107,9 +107,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-newspaper icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>{{$layanaArtikelIlmiah->nama_layanan}}</h6>
-                                    <p>{{$layanaArtikelIlmiah->penjelasan}}</p>
-                                    <span class="highlight"><strong>{{$layanaArtikelIlmiah->total_client}}</strong></span>
+                                    <h6>{{ $layanaArtikelIlmiah->nama_layanan }}</h6>
+                                    <p>{{ $layanaArtikelIlmiah->penjelasan }}</p>
+
                                 </div>
                             </div>
                         </div>
@@ -124,9 +124,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-table icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>{{$layananOlahData->nama_layanan}}</h6>
-                                    <p>{{$layananOlahData->penjelasan}}</p>
-                                    <span class="highlight"><strong>{{$layananOlahData->total_client}}</strong></span>
+                                    <h6>{{ $layananOlahData->nama_layanan }}</h6>
+                                    <p>{{ $layananOlahData->penjelasan }}</p>
+
                                 </div>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
                             <div class="box aligncenter">
                                 <i class="fa-solid fa-print icon-circled icon-64 active"></i>
                                 <div class="text">
-                                    <h6>{{$layananPercetakan->nama_layanan}}</h6>
-                                    <p>{{$layananPercetakan->penjelasan}}</p>
-                                    <span class="highlight"><strong>{{$layananPercetakan->total_client}}</strong></span>
+                                    <h6>{{ $layananPercetakan->nama_layanan }}</h6>
+                                    <p>{{ $layananPercetakan->penjelasan }}</p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -154,6 +154,80 @@
             <!-- end divider -->
 
         </div>
+        <section class="callaction">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="big-cta">
+                            <div class="cta-text">
+                                <h3>Total <span class="highlight"><strong>Client</strong></span></h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                  <div class="row">
+                    <div class="span3">
+                      <div class="box aligncenter">
+                        <div class="aligncenter icon">
+                            <i class="fa-solid fa-user-graduate icon-circled icon-64 active"></i>
+                        </div>
+                        <div class="text">
+                          <h6>{{ $layananBimbinganMahasiswa->total_client }}</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span3">
+                      <div class="box aligncenter">
+                        <div class="aligncenter icon">
+                            <i class="fa-solid fa-user-tie icon-circled icon-64 active"></i>
+                        </div>
+                        <div class="text">
+                          <h6>{{ $layananBimbinganUmum->total_client }}</h6>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span3">
+                      <div class="box aligncenter">
+                        <div class="aligncenter icon">
+                            <i class="fa-solid fa-newspaper icon-circled icon-64 active"></i>
+                        </div>
+                        <div class="text">
+                          <h6>{{ $layanaArtikelIlmiah->total_client }}</h6>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span3">
+                      <div class="box aligncenter">
+                        <div class="aligncenter icon">
+                            <i class="fa-solid fa-table icon-circled icon-64 active"></i>
+                        </div>
+                        <div class="text">
+                          <h6>{{ $layananOlahData->total_client }}</h6>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span3">
+                        <div class="box aligncenter">
+                          <div class="aligncenter icon">
+                            <i class="fa-solid fa-print icon-circled icon-64 active"></i>
+                          </div>
+                          <div class="text">
+                            <h6>{{ $layananPercetakan->total_client }}</h6>
+
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </section>
     </section>
 
 @endsection

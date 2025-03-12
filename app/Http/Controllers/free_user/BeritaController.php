@@ -12,7 +12,7 @@ class BeritaController extends Controller
     public function berita()
     {
         $dataUsaha = ModelSetting::first();
-        $dataBerita = ModelBerita::all();
+        $dataBerita = ModelBerita::latest()->paginate(2); // 5 berita per halaman
         $beritaTerbaru = ModelBerita::latest()->take(4)->get();
 
         return view('free_user.berita.berita', compact('dataUsaha', 'dataBerita', 'beritaTerbaru'));

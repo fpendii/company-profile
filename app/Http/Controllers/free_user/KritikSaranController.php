@@ -12,6 +12,7 @@ class KritikSaranController extends Controller
 {
     public function kritik_saran()
     {
+
         $dataUsaha = ModelSetting::first();
         return view('free_user.kritik_saran.kritik_saran', compact('dataUsaha'));
     }
@@ -33,7 +34,8 @@ class KritikSaranController extends Controller
             'subject' => $request->subject,
             'userMessage' => $request->message, // Ubah nama variabel di sini
         ], function ($mail) use ($request) {
-            $mail->to('nurefendi210203@gmail.com')
+            $emailAdmin = ModelSetting::first();
+            $mail->to($emailAdmin->email)
                 ->subject('Kritik dan Saran: ' . $request->subject);
         });
         return redirect()->back()->with('success', 'Terima kasih atas kritik dan saran Anda!');

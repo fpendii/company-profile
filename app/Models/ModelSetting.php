@@ -20,5 +20,6 @@ class ModelSetting extends Model
         'tentang_usaha',
         'visi',
         'misi',
+        'email',
     ];
 }

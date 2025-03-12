@@ -43,8 +43,8 @@
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
                 target="_blank">
-                <img src="/template-admin/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">Logo Perusahaan</span>
+
+                <span class="ms-1 font-weight-bold">Ratna Education</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -55,8 +55,8 @@
                         href="{{ url('admin/pengaturan') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i
-                                class="fa-solid fa-file-alt opacity-10 {{ Request::is('admin/pengaturan*') ? '' : 'text-dark' }}"></i>
+                            <i class="fa-solid fa-gear opacity-10 {{ Request::is('admin/pengaturan*') ? '' : 'text-dark' }}"></i>
+
                         </div>
                         <span class="nav-link-text ms-1">Pengaturan</span>
                     </a>
@@ -78,8 +78,8 @@
                         href="{{ url('admin/berita') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i
-                                class="fa-solid fa-user opacity-10 {{ Request::is('admin/berita*') ? '' : 'text-dark' }}"></i>
+                            <i class="fa-solid fa-newspaper opacity-10 {{ Request::is('admin/berita*') ? '' : 'text-dark' }}"></i>
+
                         </div>
                         <span class="nav-link-text ms-1">Berita</span>
                     </a>

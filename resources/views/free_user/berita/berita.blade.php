@@ -47,8 +47,7 @@
                             <ul class="recent">
                                 @foreach ($beritaTerbaru as $item)
                                     <li>
-                                        <img src="{{ asset('storage/' . $item->gambar) }}"
-                                            alt="" />
+                                        <img src="{{ asset('storage/' . $item->gambar) }}" alt="" />
                                         <h6><a href="#">{{ $item->judul }}</a></h6>
                                         <p>
                                             {{ \Illuminate\Support\Str::limit($item->konten, 30, '...') }}
@@ -107,13 +106,16 @@
                             </div>
                         </article>
                     @endforeach
-
-                    <div id="pagination">
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        {{ $dataBerita->links() }}
+                    </div>
+                    {{-- <div id="pagination">
                         <span class="all">Page 1 of 3</span>
                         <span class="current">1</span>
                         <a href="#" class="inactive">2</a>
                         <a href="#" class="inactive">3</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

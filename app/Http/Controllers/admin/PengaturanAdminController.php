@@ -27,6 +27,7 @@ class PengaturanAdminController extends Controller
         'nomer_telepon' => 'required|string',
         'alamat' => 'required|string',
         'tentang_usaha' => 'required|string',
+        'email' => 'required|email',
     ]);
 
     // Mengambil data yang ada di database
@@ -43,7 +44,8 @@ class PengaturanAdminController extends Controller
             'misi' => $request->misi,
             'nomer_telepon' => $request->nomer_telepon,
             'alamat' => $request->alamat,
-            'tentang_usaha' => $request->tentang_usaha
+            'tentang_usaha' => $request->tentang_usaha,
+            'email' => $request->email
         ]);
     } else {
         // Jika data belum ada, maka create
@@ -55,7 +57,8 @@ class PengaturanAdminController extends Controller
             'misi' => $request->misi,
             'nomer_telepon' => $request->nomer_telepon,
             'alamat' => $request->alamat,
-            'tentang_usaha' => $request->tentang_usaha
+            'tentang_usaha' => $request->tentang_usaha,
+            'email' => $request->email
         ]);
     }
 
